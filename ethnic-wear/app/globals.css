@@ -1,22 +1,86 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ================================
+     AAVIRÁ - Brand Colors
+     ================================ */
+
+  --background: #fffdf8;
+  --foreground: #3b2118;
+
+  /* Brand */
+  --brand-primary: #3b2118;
+  --brand-secondary: #9a7653;
+  --brand-gold: #c9a984;
+  --brand-gold-light: #e0c9aa;
+
+  /* Backgrounds */
+  --brand-cream: #fffdf8;
+  --brand-cream-dark: #f4ede5;
+  --brand-white: #ffffff;
+
+  /* Text */
+  --brand-text: #3b2118;
+  --brand-text-light: #cdbdb2;
+  --brand-text-muted: #9b8b7c;
+
+  /* Borders */
+  --brand-border: #eadfd3;
+  --brand-border-dark: #76594b;
+
+  /* Footer */
+  --brand-footer: #2c1913;
+  --brand-footer-border: #65483b;
+
+  /* Sale */
+  --brand-sale: #b91c1c;
 }
 
 @theme inline {
+  /* Existing */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* ================================
+     AAVIRÁ Brand Theme
+     ================================ */
+
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-gold-light: var(--brand-gold-light);
+
+  --color-brand-cream: var(--brand-cream);
+  --color-brand-cream-dark: var(--brand-cream-dark);
+  --color-brand-white: var(--brand-white);
+
+  --color-brand-text: var(--brand-text);
+  --color-brand-text-light: var(--brand-text-light);
+  --color-brand-text-muted: var(--brand-text-muted);
+
+  --color-brand-border: var(--brand-border);
+  --color-brand-border-dark: var(--brand-border-dark);
+
+  --color-brand-footer: var(--brand-footer);
+  --color-brand-footer-border: var(--brand-footer-border);
+
+  --color-brand-sale: var(--brand-sale);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ================================
+   Global Styles
+   ================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
