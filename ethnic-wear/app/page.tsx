@@ -425,14 +425,13 @@ function SectionHeading({
 ========================================================= */
 
 interface ProductCardProps {
-  key: string;
   name: string;
   category: string;
   price: string;
   image: string;
 }
 
-function ProductCard({ key, name, category, price, image }: ProductCardProps) {
+function ProductCard({ name, category, price, image }: ProductCardProps) {
   // const handleWishlist = (event: React.MouseEvent<HTMLButtonElement>) => {
   //   event.preventDefault();
   //   event.stopPropagation();
