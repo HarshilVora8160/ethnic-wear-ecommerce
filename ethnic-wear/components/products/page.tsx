@@ -1,7 +1,7 @@
-import SareesGrid from "@/components/sarees/SareesGrid";
-import { sarees } from "@/lib/sarees";
+import ProductGrid from "@/components/products/ProductGrid";
+import { products } from "@/lib/products";
 
-export default function SareesPage() {
+export default function ProductsPage() {
   return (
     <main className="min-h-screen bg-[#fbf8f3]">
 
@@ -14,17 +14,17 @@ export default function SareesPage() {
           </p>
 
           <h1 className="mt-3 font-serif text-5xl text-[#2c1913]">
-            Sarees
+            All Products
           </h1>
 
           <p className="mx-auto mt-4 max-w-xl text-[#715f55]">
-            Discover our collection of handcrafted sarees,
-            designed for timeless elegance.
+            Explore our complete collection of timeless Indian
+            fashion and contemporary designs.
           </p>
 
         </div>
 
-        <SareesGrid sarees={sarees} />
+        <ProductGrid products={products} />
 
       </section>
 
