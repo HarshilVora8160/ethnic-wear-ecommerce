@@ -53,7 +53,6 @@ export const kurtis: Kurti[] = [
     sizes: ["XS", "S", "M", "L", "XL", "XXL"],
     stock: 14,
   },
-
   {
     id: 2,
     slug: "pastel-pink-printed-kurti",
@@ -80,7 +79,6 @@ export const kurtis: Kurti[] = [
     sizes: ["S", "M", "L", "XL", "XXL"],
     stock: 20,
   },
-
   {
     id: 3,
     slug: "emerald-green-embroidered-kurti",
@@ -107,7 +105,6 @@ export const kurtis: Kurti[] = [
     sizes: ["XS", "S", "M", "L", "XL"],
     stock: 10,
   },
-
   {
     id: 4,
     slug: "black-geometric-kurti",

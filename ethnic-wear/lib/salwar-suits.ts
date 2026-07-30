@@ -6,16 +6,22 @@ export type SalwarSuit = {
   price: number;
   oldPrice?: number;
   description: string;
+
   image: string;
   images: string[];
+
   badge?: string;
+
   color: string;
   colorCode: string;
+
   fabric: string;
   work: string;
   occasion: string;
+
   rating: number;
   reviews: number;
+
   sizes: string[];
   stock: number;
 };
@@ -30,7 +36,8 @@ export const salwarSuits: SalwarSuit[] = [
     oldPrice: 4299,
     description:
       "A sophisticated maroon salwar suit featuring intricate embroidery and elegant traditional detailing.",
-    image: "/images/products/salwar-suits/salwar-suit-01.webp",
+    image:
+      "/images/products/salwar-suits/salwar-suit-01.webp",
     images: [
       "/images/products/salwar-suits/salwar-suit-01.webp",
       "/images/products/salwar-suits/salwar-suit-01-2.webp",
@@ -47,7 +54,6 @@ export const salwarSuits: SalwarSuit[] = [
     sizes: ["S", "M", "L", "XL", "XXL"],
     stock: 9,
   },
-
   {
     id: 2,
     slug: "pastel-green-festive-salwar-suit",
@@ -57,7 +63,8 @@ export const salwarSuits: SalwarSuit[] = [
     oldPrice: 3699,
     description:
       "Elegant pastel green salwar suit with delicate embroidery, perfect for festive occasions.",
-    image: "/images/products/salwar-suits/salwar-suit-02.webp",
+    image:
+      "/images/products/salwar-suits/salwar-suit-02.webp",
     images: [
       "/images/products/salwar-suits/salwar-suit-02.webp",
       "/images/products/salwar-suits/salwar-suit-02-2.webp",
@@ -74,7 +81,6 @@ export const salwarSuits: SalwarSuit[] = [
     sizes: ["S", "M", "L", "XL"],
     stock: 13,
   },
-
   {
     id: 3,
     slug: "royal-blue-party-salwar-suit",
@@ -84,7 +90,8 @@ export const salwarSuits: SalwarSuit[] = [
     oldPrice: 4599,
     description:
       "A glamorous royal blue partywear suit with refined embellishments and a contemporary silhouette.",
-    image: "/images/products/salwar-suits/salwar-suit-03.webp",
+    image:
+      "/images/products/salwar-suits/salwar-suit-03.webp",
     images: [
       "/images/products/salwar-suits/salwar-suit-03.webp",
       "/images/products/salwar-suits/salwar-suit-03-2.webp",
@@ -101,7 +108,6 @@ export const salwarSuits: SalwarSuit[] = [
     sizes: ["S", "M", "L", "XL", "XXL"],
     stock: 7,
   },
-
   {
     id: 4,
     slug: "peach-anarkali-salwar-suit",
@@ -111,7 +117,8 @@ export const salwarSuits: SalwarSuit[] = [
     oldPrice: 3999,
     description:
       "A graceful peach Anarkali salwar suit designed with delicate detailing and a flowing silhouette.",
-    image: "/images/products/salwar-suits/salwar-suit-04.webp",
+    image:
+      "/images/products/salwar-suits/salwar-suit-04.webp",
     images: [
       "/images/products/salwar-suits/salwar-suit-04.webp",
       "/images/products/salwar-suits/salwar-suit-04-2.webp",

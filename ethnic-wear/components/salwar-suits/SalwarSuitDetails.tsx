@@ -15,30 +15,28 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-import type { Kurti } from "@/lib/kurtis";
+import type { SalwarSuit } from "@/lib/salwar-suits";
 
-interface KurtiDetailsProps {
-  kurti: Kurti;
+interface Props {
+  salwarSuit: SalwarSuit;
 }
 
-export default function KurtiDetails({
-  kurti,
-}: KurtiDetailsProps) {
-  const [selectedImage, setSelectedImage] = useState(
-    kurti.image
-  );
+export default function SalwarSuitDetails({
+  salwarSuit,
+}: Props) {
+  const [selectedImage, setSelectedImage] =
+    useState(salwarSuit.image);
 
-  const [selectedSize, setSelectedSize] = useState(
-    kurti.sizes[0] ?? ""
-  );
+  const [selectedSize, setSelectedSize] =
+    useState(salwarSuit.sizes[0] ?? "");
 
   const [quantity, setQuantity] = useState(1);
   const [wishlist, setWishlist] = useState(false);
 
-  const discount = kurti.oldPrice
+  const discount = salwarSuit.oldPrice
     ? Math.round(
-        ((kurti.oldPrice - kurti.price) /
-          kurti.oldPrice) *
+        ((salwarSuit.oldPrice - salwarSuit.price) /
+          salwarSuit.oldPrice) *
           100
       )
     : 0;
@@ -48,11 +46,11 @@ export default function KurtiDetails({
 
       <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
         <Link
-          href="/kurtis"
+          href="/salwar-suits"
           className="inline-flex items-center gap-2 text-sm text-[#796a61] hover:text-[#a1812d]"
         >
           <ChevronLeft size={17} />
-          Back to Kurtis
+          Back to Salwar Suits
         </Link>
       </div>
 
@@ -60,11 +58,10 @@ export default function KurtiDetails({
 
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
 
-          {/* IMAGE GALLERY */}
           <div className="grid grid-cols-[80px_1fr] gap-4">
 
             <div className="flex flex-col gap-3">
-              {kurti.images.map((image) => (
+              {salwarSuit.images.map((image) => (
                 <button
                   key={image}
                   type="button"
@@ -77,7 +74,7 @@ export default function KurtiDetails({
                 >
                   <Image
                     src={image}
-                    alt={kurti.name}
+                    alt={salwarSuit.name}
                     fill
                     sizes="80px"
                     className="object-cover"
@@ -87,33 +84,33 @@ export default function KurtiDetails({
             </div>
 
             <div className="relative aspect-[3/4] overflow-hidden bg-[#eee5dc]">
+
               <Image
                 src={selectedImage}
-                alt={kurti.name}
+                alt={salwarSuit.name}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
 
-              {kurti.badge && (
+              {salwarSuit.badge && (
                 <span className="absolute left-4 top-4 bg-[#2c1913] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#f6df91]">
-                  {kurti.badge}
+                  {salwarSuit.badge}
                 </span>
               )}
-            </div>
 
+            </div>
           </div>
 
-          {/* PRODUCT INFO */}
           <div className="flex flex-col justify-center">
 
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#a1812d]">
-              {kurti.category}
+              {salwarSuit.category}
             </p>
 
             <h1 className="mt-3 font-serif text-4xl leading-tight text-[#2c1913] sm:text-5xl">
-              {kurti.name}
+              {salwarSuit.name}
             </h1>
 
             <div className="mt-5 flex items-center gap-2">
@@ -128,19 +125,19 @@ export default function KurtiDetails({
               </div>
 
               <span className="text-sm text-[#796a61]">
-                {kurti.rating} ({kurti.reviews} reviews)
+                {salwarSuit.rating} ({salwarSuit.reviews} reviews)
               </span>
             </div>
 
             <div className="mt-6 flex items-center gap-3">
               <span className="text-2xl font-semibold text-[#2c1913]">
-                ₹{kurti.price.toLocaleString("en-IN")}
+                ₹{salwarSuit.price.toLocaleString("en-IN")}
               </span>
 
-              {kurti.oldPrice && (
+              {salwarSuit.oldPrice && (
                 <>
                   <span className="text-lg text-[#a69a91] line-through">
-                    ₹{kurti.oldPrice.toLocaleString("en-IN")}
+                    ₹{salwarSuit.oldPrice.toLocaleString("en-IN")}
                   </span>
 
                   <span className="text-sm font-semibold text-red-700">
@@ -153,27 +150,26 @@ export default function KurtiDetails({
             <div className="my-7 h-px bg-[#e3d8cf]" />
 
             <p className="text-sm leading-7 text-[#715f55]">
-              {kurti.description}
+              {salwarSuit.description}
             </p>
 
-            {/* COLOR */}
             <div className="mt-7">
               <p className="text-sm font-semibold text-[#2c1913]">
                 Color:
                 <span className="ml-2 font-normal text-[#796a61]">
-                  {kurti.color}
+                  {salwarSuit.color}
                 </span>
               </p>
 
               <span
                 className="mt-3 block h-7 w-7 rounded-full border border-black/10"
                 style={{
-                  backgroundColor: kurti.colorCode,
+                  backgroundColor:
+                    salwarSuit.colorCode,
                 }}
               />
             </div>
 
-            {/* SIZE */}
             <div className="mt-7">
 
               <div className="flex items-center justify-between">
@@ -190,15 +186,15 @@ export default function KurtiDetails({
               </div>
 
               <div className="mt-3 flex flex-wrap gap-2">
-                {kurti.sizes.map((size) => (
+                {salwarSuit.sizes.map((size) => (
                   <button
                     key={size}
                     type="button"
                     onClick={() => setSelectedSize(size)}
-                    className={`min-w-[52px] border px-4 py-3 text-sm transition ${
+                    className={`min-w-[52px] border px-4 py-3 text-sm ${
                       selectedSize === size
                         ? "border-[#2c1913] bg-[#2c1913] text-white"
-                        : "border-[#d8ccc2] bg-white text-[#2c1913] hover:border-[#a1812d]"
+                        : "border-[#d8ccc2] bg-white text-[#2c1913]"
                     }`}
                   >
                     {size}
@@ -207,7 +203,6 @@ export default function KurtiDetails({
               </div>
             </div>
 
-            {/* QUANTITY */}
             <div className="mt-7">
 
               <p className="text-sm font-semibold text-[#2c1913]">
@@ -236,7 +231,10 @@ export default function KurtiDetails({
                   type="button"
                   onClick={() =>
                     setQuantity((value) =>
-                      Math.min(kurti.stock, value + 1)
+                      Math.min(
+                        salwarSuit.stock,
+                        value + 1
+                      )
                     )
                   }
                   className="p-3"
@@ -247,17 +245,16 @@ export default function KurtiDetails({
               </div>
 
               <p className="mt-2 text-xs text-[#a1812d]">
-                {kurti.stock} pieces available
+                {salwarSuit.stock} pieces available
               </p>
 
             </div>
 
-            {/* ACTIONS */}
             <div className="mt-8 flex gap-3">
 
               <button
                 type="button"
-                className="flex flex-1 items-center justify-center gap-2 bg-[#2c1913] px-6 py-4 text-sm font-semibold uppercase tracking-wider text-white transition hover:bg-[#4a2b20]"
+                className="flex flex-1 items-center justify-center gap-2 bg-[#2c1913] px-6 py-4 text-sm font-semibold uppercase tracking-wider text-white"
               >
                 <ShoppingBag size={18} />
                 Add to Cart
@@ -267,7 +264,6 @@ export default function KurtiDetails({
                 type="button"
                 onClick={() => setWishlist(!wishlist)}
                 className="flex h-14 w-14 items-center justify-center border border-[#2c1913] bg-white"
-                aria-label="Wishlist"
               >
                 <Heart
                   size={20}
@@ -283,12 +279,11 @@ export default function KurtiDetails({
 
             <button
               type="button"
-              className="mt-3 w-full bg-[#d4af37] px-6 py-4 text-sm font-semibold uppercase tracking-wider text-[#2c1913] transition hover:bg-[#c29d29]"
+              className="mt-3 w-full bg-[#d4af37] px-6 py-4 text-sm font-semibold uppercase tracking-wider text-[#2c1913]"
             >
               Buy It Now
             </button>
 
-            {/* FEATURES */}
             <div className="mt-8 grid grid-cols-3 border-y border-[#e3d8cf] py-6">
 
               <div className="flex flex-col items-center text-center">
@@ -314,7 +309,6 @@ export default function KurtiDetails({
 
             </div>
 
-            {/* DETAILS */}
             <div className="mt-8 grid grid-cols-2 gap-y-5 border-b border-[#e3d8cf] pb-7">
 
               <div>
@@ -322,7 +316,7 @@ export default function KurtiDetails({
                   Fabric
                 </p>
                 <p className="mt-1 text-sm text-[#2c1913]">
-                  {kurti.fabric}
+                  {salwarSuit.fabric}
                 </p>
               </div>
 
@@ -331,7 +325,7 @@ export default function KurtiDetails({
                   Work
                 </p>
                 <p className="mt-1 text-sm text-[#2c1913]">
-                  {kurti.work}
+                  {salwarSuit.work}
                 </p>
               </div>
 
@@ -340,7 +334,7 @@ export default function KurtiDetails({
                   Occasion
                 </p>
                 <p className="mt-1 text-sm text-[#2c1913]">
-                  {kurti.occasion}
+                  {salwarSuit.occasion}
                 </p>
               </div>
 
@@ -349,7 +343,7 @@ export default function KurtiDetails({
                   Category
                 </p>
                 <p className="mt-1 text-sm text-[#2c1913]">
-                  {kurti.category}
+                  {salwarSuit.category}
                 </p>
               </div>
 

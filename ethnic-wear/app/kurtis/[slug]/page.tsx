@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import KurtiDetails from "@/components/kurtis/KurtiDetails";
 import { kurtis } from "@/lib/kurtis";
 
-interface KurtiSlugPageProps {
+interface Props {
   params: Promise<{
     slug: string;
   }>;
@@ -17,7 +17,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: KurtiSlugPageProps) {
+}: Props) {
   const { slug } = await params;
 
   const kurti = kurtis.find(
@@ -38,7 +38,7 @@ export async function generateMetadata({
 
 export default async function KurtiSlugPage({
   params,
-}: KurtiSlugPageProps) {
+}: Props) {
   const { slug } = await params;
 
   const kurti = kurtis.find(

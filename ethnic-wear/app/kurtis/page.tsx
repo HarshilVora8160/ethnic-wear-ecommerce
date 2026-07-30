@@ -5,26 +5,24 @@ export default function KurtisPage() {
   return (
     <main className="min-h-screen bg-[#fbf8f3]">
 
-      <section className="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 lg:px-8 lg:pt-20">
-        <div className="mx-auto max-w-3xl text-center">
+      <section className="mx-auto max-w-7xl px-4 pb-10 pt-14 text-center sm:px-6 lg:px-8 lg:pt-20">
 
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#a1812d]">
-            AAVIRÁ Collection
-          </p>
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#a1812d]">
+          AAVIRÁ Collection
+        </p>
 
-          <h1 className="mt-4 font-serif text-5xl text-[#2c1913] sm:text-6xl">
-            Kurtis
-          </h1>
+        <h1 className="mt-4 font-serif text-5xl text-[#2c1913] sm:text-6xl">
+          Kurtis
+        </h1>
 
-          <div className="mx-auto mt-5 h-px w-16 bg-[#d4af37]" />
+        <div className="mx-auto mt-5 h-px w-16 bg-[#d4af37]" />
 
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-[#715f55] sm:text-base">
-            Discover elegant kurtis designed for everyday
-            sophistication, festive celebrations and modern
-            Indian style.
-          </p>
+        <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-[#715f55] sm:text-base">
+          Discover elegant kurtis designed for everyday
+          sophistication, festive celebrations and modern
+          Indian style.
+        </p>
 
-        </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
@@ -44,12 +42,8 @@ export default function KurtisPage() {
           >
             <option value="featured">Featured</option>
             <option value="newest">Newest</option>
-            <option value="price-low">
-              Price: Low to High
-            </option>
-            <option value="price-high">
-              Price: High to Low
-            </option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
           </select>
 
         </div>

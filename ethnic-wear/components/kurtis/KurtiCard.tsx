@@ -1,12 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Heart,
-  ShoppingBag,
-  Eye,
-  Star,
-} from "lucide-react";
+import { Heart, ShoppingBag, Eye, Star } from "lucide-react";
 import { useState } from "react";
 
 import type { Kurti } from "@/lib/kurtis";
@@ -31,6 +26,7 @@ export default function KurtiCard({
   return (
     <article className="group">
       <div className="relative aspect-[3/4] overflow-hidden bg-[#eee5dc]">
+
         <Link
           href={`/kurtis/${kurti.slug}`}
           className="block h-full w-full"
@@ -50,10 +46,8 @@ export default function KurtiCard({
 
         <button
           type="button"
-          onClick={() =>
-            setWishlist((value) => !value)
-          }
-          aria-label="Wishlist"
+          onClick={() => setWishlist((value) => !value)}
+          aria-label="Add to wishlist"
           className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/95 shadow-sm"
         >
           <Heart
@@ -68,6 +62,7 @@ export default function KurtiCard({
 
         <div className="absolute bottom-0 left-0 right-0 translate-y-full bg-[#2c1913]/95 p-3 transition duration-300 group-hover:translate-y-0">
           <div className="flex gap-2">
+
             <Link
               href={`/kurtis/${kurti.slug}`}
               className="flex flex-1 items-center justify-center gap-2 bg-[#d4af37] py-3 text-xs font-semibold uppercase tracking-wider text-[#2c1913]"
@@ -78,16 +73,18 @@ export default function KurtiCard({
 
             <button
               type="button"
-              className="flex h-11 w-11 items-center justify-center border border-[#d4af37] text-[#d4af37]"
               aria-label="Add to cart"
+              className="flex h-11 w-11 items-center justify-center border border-[#d4af37] text-[#d4af37]"
             >
               <ShoppingBag size={17} />
             </button>
+
           </div>
         </div>
       </div>
 
       <div className="pt-4">
+
         <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#a1812d]">
           {kurti.category}
         </p>
@@ -144,6 +141,7 @@ export default function KurtiCard({
             {kurti.color}
           </span>
         </div>
+
       </div>
     </article>
   );
