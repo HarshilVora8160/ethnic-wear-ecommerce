@@ -36,10 +36,10 @@ export const products: Product[] = [
     originalPrice: 8999,
     description:
       "A luxurious woven Banarasi silk saree featuring antique gold kadwa zari motifs, rich pallu detail, and handcrafted silk brocade weaving.",
-    image: "/images/products/banarasi-saree.jpg",
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80",
     images: [
-      "/images/products/banarasi-saree.jpg",
-      "/images/categories/saree.jpg",
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=80",
     ],
     badge: "Heritage Handloom",
     newArrival: true,
@@ -65,10 +65,10 @@ export const products: Product[] = [
     originalPrice: 24999,
     description:
       "Heavy royal velvet bridal lehenga set adorned with hand zardozi, dabka, dori embroidery, sequins, and twin net dupattas.",
-    image: "/images/products/bridal-lehenga.jpg",
+    image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=80",
     images: [
-      "/images/products/bridal-lehenga.jpg",
-      "/images/categories/lehenga.jpg",
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1000&q=80",
     ],
     badge: "Bespoke Bridal",
     newArrival: true,
@@ -94,10 +94,10 @@ export const products: Product[] = [
     originalPrice: 6499,
     description:
       "A contemporary sheer organza saree detailed with hand-sewn glass pearls, subtle shimmer border, and silk unstitched blouse piece.",
-    image: "/images/products/designer-saree.jpg",
+    image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=80",
     images: [
-      "/images/products/designer-saree.jpg",
-      "/images/categories/saree.jpg",
+      "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80",
     ],
     badge: "Trending",
     newArrival: false,
@@ -123,10 +123,10 @@ export const products: Product[] = [
     originalPrice: 5499,
     description:
       "Flowing floor-length Chanderi silk Anarkali suit featuring Gota Patti yoke detail, churidar, and hand-painted organza dupatta.",
-    image: "/images/products/embroidered-kurti.jpg",
+    image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1000&q=80",
     images: [
-      "/images/products/embroidered-kurti.jpg",
-      "/images/categories/kurti.jpg",
+      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=80",
     ],
     badge: "Festive Favorite",
     newArrival: true,
@@ -152,10 +152,10 @@ export const products: Product[] = [
     originalPrice: 16999,
     description:
       "Hand-embroidered raw silk groom sherwani with intricate antique gold threadwork, churidar pants, and regal stole.",
-    image: "/images/home/custom-design.jpg",
+    image: "https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=1000&q=80",
     images: [
-      "/images/home/custom-design.jpg",
-      "/images/products/bridal-lehenga.jpg",
+      "https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1000&q=80",
     ],
     badge: "Royal Groom",
     newArrival: true,
@@ -181,10 +181,10 @@ export const products: Product[] = [
     originalPrice: 4899,
     description:
       "Rich emerald green silk velvet kurta detailed with zardozi collar, paired with ivory silk pyjama.",
-    image: "/images/categories/salwar.jpg",
+    image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1000&q=80",
     images: [
-      "/images/categories/salwar.jpg",
-      "/images/products/embroidered-kurti.jpg",
+      "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=1000&q=80",
     ],
     badge: "New Arrival",
     newArrival: true,

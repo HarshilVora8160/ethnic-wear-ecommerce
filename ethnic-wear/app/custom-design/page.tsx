@@ -103,33 +103,39 @@ export default function CustomDesignPage() {
       {/* HERO */}
       {/* ================================================= */}
 
-      <section className="relative overflow-hidden bg-[#2c1913] text-white">
+      <section className="relative overflow-hidden bg-gradient-to-r from-[#2D0312] via-[#4A0C22] to-[#1F020B] border-b-2 border-[#D4AF37]/40 shadow-xl text-white">
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#d7b56d]" />
-          <div className="absolute left-1/2 top-1/2 h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#d7b56d]" />
-          <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#d7b56d]" />
+          <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#D4AF37]" />
+          <div className="absolute left-1/2 top-1/2 h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#D4AF37]" />
+          <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#D4AF37]" />
         </div>
 
-        <div className="relative mx-auto max-w-[1440px] px-5 py-20 text-center md:px-8 md:py-28">
+        {/* Radial Gold Silk Spotlight Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/30 via-[#3D091B]/85 to-[#120C0E]/95 pointer-events-none" />
+        
+        {/* Metallic Gold Thread Line at Bottom */}
+        <div className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+
+        <div className="relative z-10 mx-auto max-w-[1440px] px-5 py-20 text-center md:px-8 md:py-28">
           <div className="flex items-center justify-center gap-3">
             <WandSparkles
               size={16}
-              className="text-[#d7b56d]"
+              className="text-[#D4AF37]"
             />
 
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#d7b56d]">
+            <span className="text-[10px] uppercase tracking-[0.35em] text-[#F3E5AB]">
               AAVIRÁ Bespoke Studio
             </span>
           </div>
 
-          <h1 className="mx-auto mt-7 max-w-5xl font-serif text-5xl leading-[0.95] md:text-7xl lg:text-8xl">
+          <h1 className="mx-auto mt-7 max-w-5xl font-serif text-5xl leading-[0.95] md:text-7xl lg:text-8xl text-gold-gradient font-normal tracking-wide drop-shadow-lg">
             Your Vision.
-            <span className="block italic text-[#d7b56d]">
+            <span className="block italic text-[#F3E5AB]">
               Our Craft.
             </span>
           </h1>
 
-          <p className="mx-auto mt-7 max-w-2xl text-sm leading-7 text-[#d8cbc3] md:text-base">
+          <p className="mx-auto mt-7 max-w-2xl text-sm leading-7 text-[#F0E7DB] md:text-base font-medium">
             Create an outfit that exists nowhere else. Choose
             every detail and let our designers transform your
             idea into a one-of-a-kind creation.
@@ -142,7 +148,7 @@ export default function CustomDesignPage() {
                 .getElementById("designer-studio")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="mt-9 inline-flex items-center gap-3 bg-[#d7b56d] px-8 py-4 text-xs uppercase tracking-[0.2em] text-[#2c1913]"
+            className="mt-9 inline-flex items-center gap-3 bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#B38F24] px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[#2A0812] shadow-xl hover:brightness-110"
           >
             Start Designing
             <ArrowRight size={16} />
