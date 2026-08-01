@@ -34,8 +34,10 @@ export default function LehengaDetails({
     images[0]
   );
 
+  const lehengaSizes = lehenga.sizes && lehenga.sizes.length > 0 ? lehenga.sizes : ["Free Size"];
+
   const [selectedSize, setSelectedSize] = useState(
-    lehenga.sizes[0]
+    lehengaSizes[0]
   );
 
   const [quantity, setQuantity] = useState(1);
@@ -366,7 +368,7 @@ export default function LehengaDetails({
 
               <div className="flex flex-wrap gap-2">
 
-                {lehenga.sizes.map((size) => (
+                {lehengaSizes.map((size) => (
                   <button
                     key={size}
                     type="button"
@@ -420,7 +422,7 @@ export default function LehengaDetails({
                     onClick={() =>
                       setQuantity((value) =>
                         Math.min(
-                          lehenga.stock,
+                          lehenga.stock || 10,
                           value + 1
                         )
                       )
@@ -463,8 +465,8 @@ export default function LehengaDetails({
               <span className="h-2 w-2 rounded-full bg-green-600" />
 
               <span className="text-[#527044]">
-                {lehenga.stock <= 5
-                  ? `Only ${lehenga.stock} left in stock`
+                {(lehenga.stock || 5) <= 5
+                  ? `Only ${lehenga.stock || 5} left in stock`
                   : "In stock and ready to ship"}
               </span>
 

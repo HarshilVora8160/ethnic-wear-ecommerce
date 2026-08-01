@@ -1,60 +1,67 @@
+import React from "react";
+import SectionHeading from "@/components/ui/SectionHeading";
+
 const testimonials = [
   {
     quote:
-      "The saree was even more beautiful in person. The detailing and fabric felt incredibly premium.",
-    name: "Priya M.",
-    location: "Mumbai",
+      "My bridal Banarasi saree arrived in London within 4 days. The weight of the silk, the 24k gold zari shine, and custom blouse fitting were beyond extraordinary!",
+    name: "Dr. Radhika Sharma",
+    location: "London, UK",
+    outfit: "Royal Banarasi Silk Saree",
   },
   {
     quote:
-      "AAVIRÁ has such a beautiful balance between traditional Indian design and modern elegance.",
-    name: "Riya S.",
-    location: "Surat",
+      "AAVIRÁ designed my entire bridal lehenga troupe. Their master artisans in Lucknow spent 3 months on the zardozi detail. Everyone at the reception was spellbound.",
+    name: "Ananya Patel-Shah",
+    location: "Mumbai, India",
+    outfit: "Imperial Velvet Zardozi Lehenga",
   },
   {
     quote:
-      "The custom design experience made my saree feel genuinely personal. Absolutely loved it.",
-    name: "Ananya P.",
-    location: "Ahmedabad",
+      "The fit of the groom's sherwani was flawless. Their virtual measurement session was incredibly detailed. Exceptional luxury experience!",
+    name: "Vikramaditya Kapoor",
+    location: "New York, USA",
+    outfit: "Raw Silk Groom Sherwani",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="bg-brand-cream px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+    <section className="bg-[#FAF6F0] px-4 py-20 sm:px-6 lg:px-8 lg:py-28 border-b border-[#E6DED6]">
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-[10px] font-medium uppercase tracking-[0.35em] text-brand-gold-dark">
-            Customer Love
-          </p>
+        <SectionHeading
+          subtitle="Couture Reviews"
+          title="Stories Worn with Royal Elegance"
+          description="Read real experiences from brides, grooms, and patrons across the globe."
+        />
 
-          <h2 className="mt-5 font-serif text-4xl text-brand-primary sm:text-5xl">
-            Stories Worn Beautifully
-          </h2>
-        </div>
-
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <article
-              key={testimonial.name}
-              className="border border-brand-border bg-brand-ivory p-7 sm:p-9"
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((t) => (
+            <div
+              key={t.name}
+              className="border border-[#E6DED6] bg-white p-8 relative flex flex-col justify-between transition hover:border-[#D4AF37] hover:shadow-xl"
             >
-              <div className="text-brand-gold">★★★★★</div>
+              <div>
+                <div className="flex items-center justify-between text-xs text-[#D4AF37]">
+                  <span>★★★★★</span>
+                  <span className="bg-[#FAF6F0] text-[#2A0812] px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest border border-[#E6DED6]">
+                    Verified Buyer
+                  </span>
+                </div>
 
-              <blockquote className="mt-6 font-serif text-lg leading-8 text-brand-primary">
-                “{testimonial.quote}”
-              </blockquote>
-
-              <div className="mt-7 border-t border-brand-border pt-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-primary">
-                  {testimonial.name}
-                </p>
-
-                <p className="mt-1 text-xs text-brand-text-secondary">
-                  {testimonial.location}
-                </p>
+                <blockquote className="mt-4 font-serif text-sm leading-relaxed text-[#2A0812]">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
               </div>
-            </article>
+
+              <div className="mt-6 border-t border-[#E6DED6] pt-4">
+                <h4 className="font-serif text-base font-semibold text-[#2A0812]">{t.name}</h4>
+                <div className="flex justify-between text-[11px] text-[#9A7653] mt-0.5">
+                  <span>{t.location}</span>
+                  <span className="font-medium">{t.outfit}</span>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

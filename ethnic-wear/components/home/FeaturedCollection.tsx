@@ -1,60 +1,33 @@
+import React from "react";
 import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ProductCard from "@/components/products/ProductCard";
-
-const featuredProducts = [
-  {
-    name: "Royal Banarasi Silk Saree",
-    category: "Banarasi Collection",
-    price: "₹8,999",
-    image: "/images/products/banarasi-saree.jpg",
-    href: "/sarees/royal-banarasi-silk-saree",
-  },
-  {
-    name: "Embroidered Bridal Lehenga",
-    category: "Bridal Collection",
-    price: "₹18,999",
-    image: "/images/products/bridal-lehenga.jpg",
-    href: "/lehengas/embroidered-bridal-lehenga",
-  },
-  {
-    name: "Handcrafted Designer Saree",
-    category: "Designer Collection",
-    price: "₹12,499",
-    image: "/images/products/designer-saree.jpg",
-    href: "/sarees/handcrafted-designer-saree",
-  },
-  {
-    name: "Premium Embroidered Kurti",
-    category: "Festive Collection",
-    price: "₹4,999",
-    image: "/images/products/embroidered-kurti.jpg",
-    href: "/kurtis/premium-embroidered-kurti",
-  },
-];
+import { products } from "@/lib/products";
 
 export default function FeaturedCollection() {
+  const featured = products.slice(0, 3);
+
   return (
-    <section className="bg-brand-ivory px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+    <section className="bg-[#FAF6F0] px-4 py-20 sm:px-6 lg:px-8 lg:py-28 border-b border-[#E6DED6]">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          eyebrow="Curated for You"
-          title="Featured Collection"
-          description="Handpicked pieces that bring together heritage craftsmanship and contemporary style."
+          subtitle="Handpicked Masterpieces"
+          title="Featured Royal Collection"
+          description="A curated selection of our finest Zardozi bridal lehengas, pure Banarasi silk drapes, and bespoke menswear ensembles."
         />
 
-        <div className="mt-14 grid grid-cols-2 gap-x-4 gap-y-12 sm:gap-x-6 lg:grid-cols-4">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.name} {...product} />
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featured.map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
         <div className="mt-14 text-center">
           <Link
-            href="/collections"
-            className="inline-flex border border-brand-gold-dark px-9 py-3.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-primary transition duration-300 hover:bg-brand-gold"
+            href="/sarees"
+            className="inline-flex items-center justify-center border-2 border-[#2A0812] bg-white px-9 py-3.5 text-xs font-bold uppercase tracking-[0.2em] text-[#2A0812] transition hover:bg-[#2A0812] hover:text-[#F3E5AB]"
           >
-            View All Collections
+            View Entire Couture Line
           </Link>
         </div>
       </div>

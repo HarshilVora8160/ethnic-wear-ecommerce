@@ -1,78 +1,64 @@
-export type Saree = {
-  id: number;
-  slug: string;
-  name: string;
-  category: string;
+import { Product } from "./products";
 
-  price: number;
-  oldPrice?: number;
+export type Saree = Product;
 
-  description: string;
-
-  image: string;
-  images: string[];
-
-  badge?: string;
-
-  color: string;
-  fabric: string;
-  work: string;
-  occasion: string;
-};
-
-export const sarees: Saree[] = [
+export const sarees: Product[] = [
   {
-    id: 1,
-    slug: "royal-banarasi-silk-saree",
-    name: "Royal Banarasi Silk Saree",
+    id: 101,
+    slug: "royal-crimson-banarasi-saree",
+    name: "Royal Crimson Banarasi Silk Saree",
     category: "Banarasi Silk",
-
-    price: 4899,
-    oldPrice: 5999,
-
+    price: 6899,
+    oldPrice: 8999,
     description:
-      "A luxurious Banarasi silk saree featuring elegant traditional zari work and a timeless silhouette.",
-
-    image: "/images/products/saree-01.webp",
-
-    images: [
-      "/images/products/saree-01.webp",
-      "/images/products/saree-01-2.webp",
-      "/images/products/saree-01-3.webp",
-    ],
-
-    badge: "New",
-
-    color: "Maroon",
+      "A rich Kadhwa weave Banarasi silk saree adorned with intricate floral jaal and pure gold zari border.",
+    image: "/images/products/banarasi-saree.jpg",
+    images: ["/images/products/banarasi-saree.jpg", "/images/categories/saree.jpg"],
+    badge: "Heritage Handloom",
+    color: "Crimson Red",
     fabric: "Banarasi Silk",
-    work: "Zari",
-    occasion: "Wedding",
+    work: "Pure Gold Zari",
+    occasion: "Bridal & Wedding",
+    sizes: ["Free Size"],
   },
-
   {
-    id: 2,
-    slug: "pearl-embroidered-designer-saree",
-    name: "Pearl Embroidered Designer Saree",
-    category: "Designer Saree",
-
+    id: 102,
+    slug: "pearl-embroidered-organza-saree",
+    name: "Pastel Ivory Pearl Organza Saree",
+    category: "Designer Organza",
     price: 5299,
     oldPrice: 6499,
-
     description:
-      "A contemporary designer saree featuring delicate pearl embroidery and an elegant modern finish.",
-
-    image: "/images/products/saree-02.webp",
-
-    images: [
-      "/images/products/saree-02.webp",
-      "/images/products/saree-02-2.webp",
-    ],
-
+      "Delicate organza saree embellished with glass pearl embroidery and scalloped border.",
+    image: "/images/products/designer-saree.jpg",
+    images: ["/images/products/designer-saree.jpg", "/images/categories/saree.jpg"],
     badge: "Trending",
-
-    color: "Cream",
+    color: "Ivory White",
     fabric: "Organza",
     work: "Pearl Embroidery",
-    occasion: "Party",
+    occasion: "Party & Cocktail",
+    sizes: ["Free Size"],
+  },
+  {
+    id: 103,
+    slug: "pastel-blush-kanjeevaram-saree",
+    name: "Pastel Blush Pink Kanjeevaram Silk Saree",
+    category: "Kanjeevaram Silk",
+    price: 7499,
+    oldPrice: 9299,
+    description:
+      "Classic Kanchipuram silk saree featuring temple zari borders and contrast brocade pallu.",
+    image: "/images/categories/saree.jpg",
+    images: ["/images/categories/saree.jpg", "/images/products/banarasi-saree.jpg"],
+    badge: "Bestseller",
+    color: "Blush Pink",
+    fabric: "Kanjeevaram Silk",
+    work: "Silver & Gold Zari",
+    occasion: "Festive & Wedding",
+    sizes: ["Free Size"],
   },
 ];
+
+export function getSareeBySlug(slug: string) {
+  return sarees.find((s) => s.slug === slug) || sarees[0];
+}

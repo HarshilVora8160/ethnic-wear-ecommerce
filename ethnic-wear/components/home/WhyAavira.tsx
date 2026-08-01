@@ -1,54 +1,51 @@
+import React from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const reasons = [
   {
     number: "01",
-    title: "Fine Craftsmanship",
-    description:
-      "Every piece is thoughtfully crafted with attention to detail and traditional Indian artistry.",
+    title: "100% Authentic Handloom",
+    description: "Every saree and lehenga comes with certified origin tags guaranteeing genuine Varanasi, Kanchipuram, and Chanderi weaving.",
   },
   {
     number: "02",
-    title: "Premium Fabrics",
-    description:
-      "We carefully select fabrics that feel luxurious, comfortable and beautiful to wear.",
+    title: "Artisan Direct Heritage",
+    description: "We work directly with 250+ master weaver families, preserving centuries-old zardozi and kadwa zari techniques.",
   },
   {
     number: "03",
-    title: "Made for You",
-    description:
-      "Discover personalized designs, custom sarees and embroidery created around your style.",
+    title: "Custom Fitting Concierge",
+    description: "Enjoy complimentary virtual consultations with senior tailors for custom neckline, sleeve, and waist fittings.",
   },
 ];
 
 export default function WhyAavira() {
   return (
-    <section className="border-y border-brand-border bg-brand-ivory px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+    <section className="bg-[#FAF6F0] px-4 py-20 sm:px-6 lg:px-8 lg:py-28 border-b border-[#E6DED6]">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          eyebrow="The AAVIRÁ Difference"
-          title="Made to Be Remembered"
-          description="Every detail matters when it comes to something you will treasure."
+          subtitle="The AAVIRÁ Promise"
+          title="Designed to Be Remembered"
+          description="We take immense pride in crafting heirloom-quality garments destined to be passed down through generations."
         />
 
-        <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
-          {reasons.map((reason) => (
-            <article
-              key={reason.number}
-              className="border-t border-brand-gold pt-6"
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {reasons.map((r) => (
+            <div
+              key={r.number}
+              className="border border-[#E6DED6] bg-white p-8 relative overflow-hidden transition-all duration-300 hover:border-[#D4AF37] hover:shadow-xl group"
             >
-              <span className="font-serif text-4xl text-brand-gold">
-                {reason.number}
-              </span>
-
-              <h3 className="mt-5 font-serif text-2xl text-brand-primary">
-                {reason.title}
+              <div className="absolute right-4 top-2 font-serif text-6xl font-bold text-[#F0E7DB] group-hover:text-[#D4AF37]/20 transition">
+                {r.number}
+              </div>
+              <span className="text-sm text-[#D4AF37]">❖</span>
+              <h3 className="mt-4 font-serif text-2xl font-medium text-[#2A0812]">
+                {r.title}
               </h3>
-
-              <p className="mt-4 text-sm leading-7 text-brand-text-secondary">
-                {reason.description}
+              <p className="mt-3 text-xs leading-relaxed text-[#786C68]">
+                {r.description}
               </p>
-            </article>
+            </div>
           ))}
         </div>
       </div>

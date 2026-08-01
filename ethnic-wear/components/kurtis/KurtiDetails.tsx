@@ -28,8 +28,10 @@ export default function KurtiDetails({
     kurti.image
   );
 
+  const sizesList = kurti.sizes && kurti.sizes.length > 0 ? kurti.sizes : ["Free Size"];
+
   const [selectedSize, setSelectedSize] = useState(
-    kurti.sizes[0] ?? ""
+    sizesList[0]
   );
 
   const [quantity, setQuantity] = useState(1);
@@ -190,7 +192,7 @@ export default function KurtiDetails({
               </div>
 
               <div className="mt-3 flex flex-wrap gap-2">
-                {kurti.sizes.map((size) => (
+                {sizesList.map((size) => (
                   <button
                     key={size}
                     type="button"
@@ -236,7 +238,7 @@ export default function KurtiDetails({
                   type="button"
                   onClick={() =>
                     setQuantity((value) =>
-                      Math.min(kurti.stock, value + 1)
+                      Math.min(kurti.stock || 10, value + 1)
                     )
                   }
                   className="p-3"
@@ -247,7 +249,7 @@ export default function KurtiDetails({
               </div>
 
               <p className="mt-2 text-xs text-[#a1812d]">
-                {kurti.stock} pieces available
+                {kurti.stock || 5} pieces available
               </p>
 
             </div>

@@ -1,90 +1,157 @@
 @import "tailwindcss";
 
-:root {
-  /* ================================
-     AAVIRÁ - Brand Colors
-     ================================ */
+@layer base {
+  :root {
+    --background: #faf6f0;
+    --foreground: #1a1215;
 
-  --background: #fffdf8;
-  --foreground: #3b2118;
+    /* Luxury Color Palette */
+    --brand-primary: #2a0812;
+    --brand-primary-hover: #4a1525;
+    --brand-secondary: #9a7653;
 
-  /* Brand */
-  --brand-primary: #3b2118;
-  --brand-secondary: #9a7653;
-  --brand-gold: #c9a984;
-  --brand-gold-light: #e0c9aa;
+    --brand-gold: #d4af37;
+    --brand-gold-light: #f3e5ab;
+    --brand-gold-dark: #b38f24;
 
-  /* Backgrounds */
-  --brand-cream: #fffdf8;
-  --brand-cream-dark: #f4ede5;
-  --brand-white: #ffffff;
+    --brand-cream: #faf6f0;
+    --brand-cream-dark: #f0e7db;
+    --brand-white: #ffffff;
 
-  /* Text */
-  --brand-text: #3b2118;
-  --brand-text-light: #cdbdb2;
-  --brand-text-muted: #9b8b7c;
+    --brand-obsidian: #120c0e;
+    --brand-obsidian-card: #1a1215;
 
-  /* Borders */
-  --brand-border: #eadfd3;
-  --brand-border-dark: #76594b;
+    --brand-text: #1a1215;
+    --brand-text-muted: #786c68;
+    --brand-text-light: #cdbdb2;
 
-  /* Footer */
-  --brand-footer: #2c1913;
-  --brand-footer-border: #65483b;
+    --brand-border: #e6ded6;
+    --brand-border-dark: #3a2a2f;
 
-  /* Sale */
-  --brand-sale: #b91c1c;
+    --brand-sale: #b91c1c;
+  }
 }
 
 @theme inline {
-  /* Existing */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-
-  /* ================================
-     AAVIRÁ Brand Theme
-     ================================ */
+  --font-serif: var(--font-cormorant), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
 
   --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-hover: var(--brand-primary-hover);
   --color-brand-secondary: var(--brand-secondary);
 
   --color-brand-gold: var(--brand-gold);
   --color-brand-gold-light: var(--brand-gold-light);
+  --color-brand-gold-dark: var(--brand-gold-dark);
 
   --color-brand-cream: var(--brand-cream);
   --color-brand-cream-dark: var(--brand-cream-dark);
   --color-brand-white: var(--brand-white);
 
+  --color-brand-obsidian: var(--brand-obsidian);
+  --color-brand-obsidian-card: var(--brand-obsidian-card);
+
   --color-brand-text: var(--brand-text);
-  --color-brand-text-light: var(--brand-text-light);
   --color-brand-text-muted: var(--brand-text-muted);
+  --color-brand-text-light: var(--brand-text-light);
 
   --color-brand-border: var(--brand-border);
   --color-brand-border-dark: var(--brand-border-dark);
 
-  --color-brand-footer: var(--brand-footer);
-  --color-brand-footer-border: var(--brand-footer-border);
-
   --color-brand-sale: var(--brand-sale);
 }
 
-/* ================================
-   Global Styles
-   ================================ */
-
-* {
-  box-sizing: border-box;
+/* Luxury Utilities */
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #b38f24 100%);
 }
 
-html {
-  scroll-behavior: smooth;
+.text-gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #b38f24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.bg-obsidian-gradient {
+  background: linear-gradient(180deg, #120c0e 0%, #1f1418 100%);
+}
+
+.gold-glow {
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.35);
+  transform: translateY(-2px);
+}
+
+.glass-header {
+  background: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-dark {
+  background: rgba(18, 12, 14, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Subtle Royal Indian Damask / Paisley Pattern Overlay */
+.bg-motif-pattern {
+  background-image: radial-gradient(#d4af37 0.75px, transparent 0.75px), radial-gradient(#d4af37 0.75px, #faf6f0 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  background-opacity: 0.05;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #faf6f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a984;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9a7653;
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

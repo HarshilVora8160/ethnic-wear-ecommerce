@@ -1,33 +1,15 @@
-import SareesGrid from "@/components/sarees/SareesGrid";
+import React from "react";
+import CategoryPageLayout from "@/components/ui/CategoryPageLayout";
 import { sarees } from "@/lib/sarees";
 
 export default function SareesPage() {
   return (
-    <main className="min-h-screen bg-[#fbf8f3]">
-
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-
-        <div className="mb-12 text-center">
-
-          <p className="text-xs uppercase tracking-[0.3em] text-[#a1812d]">
-            AAVIRÁ Collection
-          </p>
-
-          <h1 className="mt-3 font-serif text-5xl text-[#2c1913]">
-            Sarees
-          </h1>
-
-          <p className="mx-auto mt-4 max-w-xl text-[#715f55]">
-            Discover our collection of handcrafted sarees,
-            designed for timeless elegance.
-          </p>
-
-        </div>
-
-        <SareesGrid sarees={sarees} />
-
-      </section>
-
-    </main>
+    <CategoryPageLayout
+      title="Banarasi & Heritage Sarees"
+      subtitle="AAVIRÁ Saree Atelier"
+      description="Handwoven Banarasi silk drapes, sheer organza weaves, and Kanjeevaram heritage sarees crafted by master Indian weavers."
+      bannerImage="/images/categories/saree.jpg"
+      products={sarees}
+    />
   );
 }

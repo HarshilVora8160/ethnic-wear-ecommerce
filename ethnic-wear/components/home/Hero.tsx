@@ -1,69 +1,146 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const heroSlides = [
+  {
+    image: "/images/home/hero.jpg",
+    tag: "Royal Heritage 2026",
+    title: "Timeless Indian",
+    titleHighlight: "Couture & Grace",
+    description: "Handcrafted Banarasi silk sarees & bespoke bridal lehengas inspired by India's imperial royal courts.",
+    primaryCta: { label: "Explore Sarees", href: "/sarees" },
+    secondaryCta: { label: "Bridal Lehengas", href: "/lehengas" },
+  },
+  {
+    image: "/images/products/bridal-lehenga.jpg",
+    tag: "Bespoke Bridal Spotlight",
+    title: "Imperial Velvet",
+    titleHighlight: "Hand Zardozi",
+    description: "Heavy velvet bridal ensembles with intricately woven 24k gold zari and custom made-to-measure fitting.",
+    primaryCta: { label: "View Lehengas", href: "/lehengas" },
+    secondaryCta: { label: "Custom Fitting", href: "/custom-design" },
+  },
+  {
+    image: "/images/home/custom-design.jpg",
+    tag: "Royal Menswear",
+    title: "Regal Sherwanis &",
+    titleHighlight: "Silk Kurtas",
+    description: "Refined sherwanis, bandhgalas, and raw silk kurtas crafted for the discerning modern groom.",
+    primaryCta: { label: "Groom Collection", href: "/men" },
+    secondaryCta: { label: "Explore Craft", href: "/embroidery" },
+  },
+];
+
 export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const slide = heroSlides[currentSlide];
+
   return (
-    <section className="relative min-h-[680px] overflow-hidden lg:min-h-[820px]">
-      <Image
-        src="/images/home/hero.jpg"
-        alt="AAVIRÁ luxury Indian ethnic wear collection"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+    <section className="relative min-h-[720px] overflow-hidden lg:min-h-[860px] bg-[#120C0E]">
+      {/* Background Image Carousel */}
+      {heroSlides.map((s, idx) => (
+        <div
+          key={idx}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            idx === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105 pointer-events-none"
+          }`}
+        >
+          <Image
+            src={s.image}
+            alt={s.title}
+            fill
+            priority={idx === 0}
+            sizes="100vw"
+            className="object-cover object-center filter brightness-90"
+          />
+          {/* Luxury Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#120C0E]/90 via-[#120C0E]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#120C0E] via-transparent to-[#120C0E]/30" />
+        </div>
+      ))}
 
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/85 via-brand-primary/55 to-brand-primary/15" />
-
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/50 via-transparent to-transparent" />
-
-      <div className="relative z-10 mx-auto flex min-h-[680px] max-w-7xl items-center px-5 sm:px-8 lg:min-h-[820px] lg:px-12">
-        <div className="max-w-3xl text-white">
-          <div className="mb-6 flex items-center gap-4">
-            <span className="h-px w-10 bg-brand-gold" />
-
-            <p className="text-[10px] font-medium uppercase tracking-[0.35em] text-brand-champagne sm:text-xs">
-              The New Heritage Collection
-            </p>
+      {/* Hero Content */}
+      <div className="relative z-10 mx-auto flex min-h-[720px] max-w-7xl items-center px-6 sm:px-8 lg:min-h-[860px] lg:px-12">
+        <div className="max-w-2xl text-white py-12">
+          {/* Gold Badge */}
+          <div className="inline-flex items-center gap-3 border border-[#D4AF37]/50 bg-[#120C0E]/70 px-4 py-1.5 backdrop-blur-md">
+            <span className="h-2 w-2 rounded-full bg-[#D4AF37] animate-ping" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#F3E5AB]">
+              ✦ {slide.tag}
+            </span>
           </div>
 
-          <h1 className="font-serif text-5xl leading-[0.98] tracking-tight sm:text-7xl lg:text-8xl xl:text-9xl">
-            Timeless
+          {/* Heading */}
+          <h1 className="mt-6 font-serif text-5xl leading-[0.95] tracking-wide sm:text-7xl lg:text-8xl font-normal text-white">
+            {slide.title}
             <br />
-            <span className="italic text-brand-champagne">
-              Indian Elegance
+            <span className="text-gold-gradient italic font-serif">
+              {slide.titleHighlight}
             </span>
           </h1>
 
-          <p className="mt-7 max-w-xl text-sm leading-7 text-white/80 sm:text-base">
-            Discover exquisite sarees, lehengas and ethnic wear inspired by
-            India&apos;s timeless artistry and crafted for the modern woman.
+          <p className="mt-6 max-w-lg text-sm sm:text-base leading-relaxed text-[#CDBDB2]">
+            {slide.description}
           </p>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          {/* Action CTA Buttons */}
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <Link
-              href="/sarees"
-              className="inline-flex h-13 items-center justify-center bg-brand-gold px-9 text-xs font-semibold uppercase tracking-[0.18em] text-brand-primary transition duration-300 hover:bg-brand-gold-light"
+              href={slide.primaryCta.href}
+              className="inline-flex h-13 items-center justify-center bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#B38F24] px-8 text-xs font-bold uppercase tracking-[0.2em] text-[#120C0E] shadow-xl transition hover:brightness-110 gold-glow-hover"
             >
-              Shop Sarees
+              {slide.primaryCta.label} &rarr;
             </Link>
 
             <Link
-              href="/new-arrivals"
-              className="inline-flex h-13 items-center justify-center border border-white/60 px-9 text-xs font-semibold uppercase tracking-[0.18em] text-white transition duration-300 hover:border-brand-gold hover:bg-brand-gold hover:text-brand-primary"
+              href={slide.secondaryCta.href}
+              className="inline-flex h-13 items-center justify-center border border-[#F3E5AB]/40 bg-[#120C0E]/50 px-8 text-xs font-bold uppercase tracking-[0.2em] text-[#F3E5AB] backdrop-blur-md transition hover:border-[#D4AF37] hover:bg-[#D4AF37]/20"
             >
-              New Arrivals
+              {slide.secondaryCta.label}
             </Link>
+          </div>
+
+          {/* Floating Trust Pills */}
+          <div className="mt-12 flex flex-wrap items-center gap-6 border-t border-[#3A2A2F] pt-6 text-xs text-[#F3E5AB]">
+            <div className="flex items-center gap-2">
+              <span className="text-[#D4AF37]">❖</span>
+              <span>100% Certified Silk</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[#D4AF37]">❖</span>
+              <span>Bespoke Custom Fits</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[#D4AF37]">❖</span>
+              <span>Global Express Shipping</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-7 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-3 text-white/70 md:flex">
-        <span className="text-[9px] uppercase tracking-[0.3em]">
-          Discover
-        </span>
-
-        <span className="h-10 w-px bg-white/50" />
+      {/* Carousel Dots Indicator */}
+      <div className="absolute bottom-8 right-8 z-20 flex gap-3">
+        {heroSlides.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentSlide(idx)}
+            className={`h-2 transition-all duration-300 ${
+              idx === currentSlide ? "w-8 bg-[#D4AF37]" : "w-2 bg-white/40 hover:bg-white"
+            }`}
+            aria-label={`Slide ${idx + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

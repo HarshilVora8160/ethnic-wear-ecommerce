@@ -1,64 +1,60 @@
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ProductCard from "@/components/products/ProductCard";
-
-const products = [
-  {
-    name: "Royal Banarasi Silk Saree",
-    category: "Banarasi Collection",
-    price: "₹8,999",
-    image: "/images/products/banarasi-saree.jpg",
-    href: "/sarees/royal-banarasi-silk-saree",
-    badge: "New",
-  },
-  {
-    name: "Embroidered Bridal Lehenga",
-    category: "Bridal Collection",
-    price: "₹18,999",
-    image: "/images/products/bridal-lehenga.jpg",
-    href: "/lehengas/embroidered-bridal-lehenga",
-    badge: "Bestseller",
-  },
-  {
-    name: "Handcrafted Designer Saree",
-    category: "Designer Collection",
-    price: "₹12,499",
-    image: "/images/products/designer-saree.jpg",
-    href: "/sarees/handcrafted-designer-saree",
-    badge: "New",
-  },
-  {
-    name: "Premium Embroidered Kurti",
-    category: "Festive Collection",
-    price: "₹4,999",
-    image: "/images/products/embroidered-kurti.jpg",
-    href: "/kurtis/premium-embroidered-kurti",
-    badge: "New",
-  },
-];
+import { products as allProducts } from "@/lib/products";
 
 export default function NewArrivals() {
+  const [activeTab, setActiveTab] = useState("All");
+
+  const tabs = ["All", "Sarees", "Lehengas", "Kurtis", "Men"];
+
+  const filteredProducts = activeTab === "All"
+    ? allProducts
+    : allProducts.filter((p) => p.category === activeTab);
+
   return (
-    <section className="bg-brand-cream px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+    <section className="bg-[#FAF6F0] px-4 py-20 sm:px-6 lg:px-8 lg:py-28 border-b border-[#E6DED6]">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          eyebrow="Just Arrived"
-          title="New Arrivals"
-          description="Fresh expressions of Indian artistry, designed for the modern wardrobe."
+          subtitle="Just Arrived Couture"
+          title="The New Heritage Drop"
+          description="Fresh expressions of royal Indian artistry, handcrafted for upcoming weddings and festive celebrations."
         />
 
-        <div className="mt-14 grid grid-cols-2 gap-x-4 gap-y-12 sm:gap-x-6 lg:grid-cols-4">
-          {products.map((product) => (
-            <ProductCard key={product.name} {...product} />
+        {/* Tab Filters */}
+        <div className="mt-8 flex justify-center gap-2 sm:gap-4 overflow-x-auto pb-4">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-5 py-2 text-xs font-semibold uppercase tracking-wider transition ${
+                activeTab === tab
+                  ? "bg-[#2A0812] text-[#F3E5AB] border border-[#2A0812] shadow-sm"
+                  : "bg-white text-[#2A0812] border border-[#E6DED6] hover:border-[#D4AF37]"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* Product Grid */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
         <div className="mt-14 text-center">
           <Link
             href="/new-arrivals"
-            className="inline-flex border border-brand-gold-dark px-9 py-3.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-primary transition duration-300 hover:bg-brand-gold"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#B38F24] px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[#2A0812] shadow-md transition hover:brightness-105"
           >
-            Explore New Arrivals
+            <span>Explore All New Arrivals</span>
+            <span>&rarr;</span>
           </Link>
         </div>
       </div>

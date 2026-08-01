@@ -1,40 +1,36 @@
+import React from "react";
 import Link from "next/link";
 
 export default function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-brand-primary px-5 py-24 text-center sm:px-8 lg:py-32">
-      <div className="absolute left-1/2 top-0 h-px w-32 -translate-x-1/2 bg-brand-gold" />
+    <section className="relative overflow-hidden bg-[#2A0812] px-6 py-24 text-center text-white lg:py-32 border-t border-[#D4AF37]/30">
+      <div className="mx-auto max-w-3xl relative z-10">
+        <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#D4AF37]">
+          ✦ Your Celebration Awaits ✦
+        </span>
 
-      <div className="relative mx-auto max-w-3xl">
-        <p className="text-[10px] font-medium uppercase tracking-[0.4em] text-brand-gold">
-          Your Next Occasion Awaits
-        </p>
-
-        <h2 className="mt-6 font-serif text-5xl leading-tight text-white sm:text-6xl lg:text-7xl">
-          Dress in
-          <span className="italic text-brand-champagne"> Tradition.</span>
+        <h2 className="mt-4 font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-tight text-[#F3E5AB]">
+          Wear Imperial History.
           <br />
-          Live in Luxury.
+          <span className="italic font-serif text-white">Embrace Timeless Grace.</span>
         </h2>
 
-        <p className="mx-auto mt-7 max-w-xl text-sm leading-7 text-brand-text-light sm:text-base">
-          Explore our latest collection of sarees, lehengas and timeless ethnic
-          wear.
+        <p className="mt-6 text-sm text-[#CDBDB2] max-w-lg mx-auto leading-relaxed">
+          From heirloom Banarasi silks to bespoke royal bridal lehengas, discover India&apos;s finest handcrafted couture.
         </p>
 
-        <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
           <Link
-            href="/new-arrivals"
-            className="inline-flex h-13 items-center justify-center bg-brand-gold px-9 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-primary transition hover:bg-brand-gold-light"
+            href="/sarees"
+            className="inline-flex h-13 items-center justify-center bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#B38F24] px-10 text-xs font-bold uppercase tracking-[0.2em] text-[#2A0812] shadow-xl hover:brightness-110"
           >
-            Shop New Arrivals
+            Shop Saree Collection
           </Link>
-
           <Link
             href="/custom-design"
-            className="inline-flex h-13 items-center justify-center border border-white/40 px-9 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition hover:border-brand-gold hover:bg-brand-gold hover:text-brand-primary"
+            className="inline-flex h-13 items-center justify-center border border-[#F3E5AB]/40 px-10 text-xs font-bold uppercase tracking-[0.2em] text-[#F3E5AB] hover:bg-[#D4AF37]/20 transition"
           >
-            Create Your Saree
+            Bespoke Made-to-Order
           </Link>
         </div>
       </div>

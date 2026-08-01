@@ -25,10 +25,10 @@ export default function EmbroideryGrid({
         item.name
           .toLowerCase()
           .includes(search.toLowerCase()) ||
-        item.technique
+        (item.technique || "")
           .toLowerCase()
           .includes(search.toLowerCase()) ||
-        item.style
+        (item.style || "")
           .toLowerCase()
           .includes(search.toLowerCase());
 

@@ -136,12 +136,12 @@ export default function EmbroideryDetails({
 
               <InfoRow
                 label="Technique"
-                value={embroidery.technique}
+                value={embroidery.technique || "Hand Embroidery"}
               />
 
               <InfoRow
                 label="Style"
-                value={embroidery.style}
+                value={embroidery.style || "Heritage"}
               />
 
               <InfoRow

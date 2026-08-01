@@ -1,76 +1,101 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const categories = [
   {
-    name: "Sarees",
-    description: "Timeless drapes for every celebration",
+    name: "Banarasi & Silk Sarees",
+    count: "120+ Designs",
+    description: "Opulent handloom drapes for weddings and festivals",
     href: "/sarees",
     image: "/images/categories/saree.jpg",
   },
   {
-    name: "Lehengas",
-    description: "Designed for unforgettable moments",
+    name: "Bridal & Party Lehengas",
+    count: "85+ Couture Sets",
+    description: "Bespoke zardozi & mirrorwork voluminous silhouettes",
     href: "/lehengas",
     image: "/images/categories/lehenga.jpg",
   },
   {
-    name: "Kurtis",
-    description: "Effortless elegance for every day",
+    name: "Festive Anarkalis & Kurtis",
+    count: "140+ Styles",
+    description: "Chanderi silk & embroidered flared ethnic ensembles",
     href: "/kurtis",
     image: "/images/categories/kurti.jpg",
   },
   {
-    name: "Salwar Suits",
-    description: "Classic silhouettes, modern grace",
+    name: "Salwar & Sharara Suits",
+    count: "95+ Outfits",
+    description: "Intricate Chikankari & Gota Patti tailored sets",
     href: "/salwar-suits",
     image: "/images/categories/salwar.jpg",
+  },
+  {
+    name: "Royal Menswear Sherwanis",
+    count: "60+ Groom Suits",
+    description: "Raw silk sherwanis, bandhgalas & embroidered kurtas",
+    href: "/men",
+    image: "/images/home/custom-design.jpg",
+  },
+  {
+    name: "Bespoke Zardozi Atelier",
+    count: "Made-to-Order",
+    description: "Crafted exclusively around your personal measurements",
+    href: "/custom-design",
+    image: "/images/home/embroidery.jpg",
   },
 ];
 
 export default function CategoryGrid() {
   return (
-    <section className="bg-brand-ivory px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+    <section className="bg-[#FAF6F0] px-4 py-20 sm:px-6 lg:px-8 lg:py-28 border-b border-[#E6DED6]">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          eyebrow="Explore"
-          title="Shop by Category"
-          description="Discover silhouettes designed for celebrations, traditions and everyday elegance."
+          subtitle="Discover Collections"
+          title="Curated Couture Categories"
+          description="Explore our masterfully crafted Indian ethnic wear collections, woven with rich heritage fabrics and timeless handwork."
         />
 
-        <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-6">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => (
             <Link
               key={category.name}
               href={category.href}
-              className="group block"
+              className="group relative block aspect-[3/4] overflow-hidden border border-[#E6DED6] bg-[#120C0E] shadow-md transition-all duration-500 hover:border-[#D4AF37] hover:shadow-2xl"
             >
-              <article className="relative aspect-[3/4] overflow-hidden bg-brand-cream-dark">
-                <Image
-                  src={category.image}
-                  alt={`${category.name} collection`}
-                  fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 300px"
-                  className="object-cover transition duration-700 ease-out group-hover:scale-105"
-                />
+              <Image
+                src={category.image}
+                alt={category.name}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95 group-hover:brightness-105"
+              />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/90 via-brand-primary/10 to-transparent" />
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#120C0E]/95 via-[#120C0E]/40 to-transparent transition-opacity group-hover:from-[#120C0E]/90" />
 
-                <div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-7">
-                  <p className="font-serif text-xl sm:text-2xl">
-                    {category.name}
-                  </p>
+              {/* Gold Top Badge */}
+              <div className="absolute top-4 left-4 z-10">
+                <span className="bg-[#2A0812] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#F3E5AB] border border-[#D4AF37]/40 shadow-xs">
+                  {category.count}
+                </span>
+              </div>
 
-                  <p className="mt-1 hidden text-xs leading-5 text-white/75 sm:block">
-                    {category.description}
-                  </p>
-
-                  <span className="mt-4 inline-block text-[9px] font-semibold uppercase tracking-[0.2em] text-brand-champagne">
-                    Explore Collection →
-                  </span>
+              {/* Bottom Info */}
+              <div className="absolute inset-x-0 bottom-0 z-10 p-6 text-white flex flex-col justify-end">
+                <h3 className="font-serif text-2xl font-medium text-[#F3E5AB] group-hover:text-white transition">
+                  {category.name}
+                </h3>
+                <p className="mt-2 text-xs text-[#CDBDB2] line-clamp-2 leading-relaxed">
+                  {category.description}
+                </p>
+                <div className="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+                  <span>Explore Collection</span>
+                  <span className="transition-transform group-hover:translate-x-1.5">&rarr;</span>
                 </div>
-              </article>
+              </div>
             </Link>
           ))}
         </div>

@@ -474,7 +474,7 @@ export default function CustomDesignPage() {
             <div className="overflow-hidden bg-[#2c1913] text-white">
               <div className="relative aspect-[4/5] bg-[#38231c]">
                 <Image
-                  src="/images/custom-design/custom-preview.jpg"
+                  src="/images/home/custom-design.jpg"
                   alt="Custom design preview"
                   fill
                   className="object-cover opacity-70"

@@ -1,48 +1,70 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function EditorialSection() {
   return (
-    <section className="bg-brand-primary px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
-        <div className="relative aspect-[4/5] overflow-hidden">
-          <Image
-            src="/images/home/hero.jpg"
-            alt="AAVIRÁ heritage inspired fashion"
-            fill
-            sizes="(max-width: 1024px) 100vw, 55vw"
-            className="object-cover"
-          />
+    <section className="bg-[#120C0E] text-white px-6 py-20 lg:py-28 relative overflow-hidden border-b border-[#D4AF37]/30">
+      {/* Background Subtle Gold Glow */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 h-96 w-96 rounded-full bg-[#D4AF37]/10 blur-3xl pointer-events-none" />
 
-          <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        {/* Left: Dual Overlapping Fashion Imagery */}
+        <div className="relative flex justify-center">
+          <div className="relative h-[440px] sm:h-[520px] w-full max-w-md overflow-hidden border-2 border-[#D4AF37]/40 shadow-2xl">
+            <Image
+              src="/images/products/banarasi-saree.jpg"
+              alt="AAVIRÁ Heritage Silk"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+          {/* Overlapping Secondary Card */}
+          <div className="absolute -bottom-8 -right-4 sm:-right-8 hidden sm:block h-64 w-52 overflow-hidden border-2 border-[#D4AF37] shadow-2xl bg-[#1A1215]">
+            <Image
+              src="/images/products/bridal-lehenga.jpg"
+              alt="Artisan Embroidery"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
 
-        <div className="text-white">
-          <p className="text-[10px] font-medium uppercase tracking-[0.35em] text-brand-gold">
-            The AAVIRÁ Story
-          </p>
+        {/* Right: Editorial Narrative */}
+        <div className="lg:pl-8">
+          <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#D4AF37]">
+            ✦ Royal Heritage Editorial ✦
+          </span>
 
-          <h2 className="mt-5 font-serif text-4xl leading-tight sm:text-5xl lg:text-6xl">
-            Heritage,
+          <h2 className="mt-4 font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight text-[#F3E5AB]">
+            Heritage Artistry,
             <br />
-            <span className="italic text-brand-champagne">
-              Reimagined.
-            </span>
+            <span className="italic font-serif text-white">Reimagined for Royalty.</span>
           </h2>
 
-          <p className="mt-7 text-sm leading-8 text-white/70 sm:text-base">
-            We believe Indian fashion should feel both deeply rooted and
-            effortlessly modern. AAVIRÁ brings together traditional artistry,
-            refined silhouettes and thoughtful details to create pieces that
-            become part of your story.
+          <p className="mt-6 text-sm sm:text-base leading-relaxed text-[#CDBDB2]">
+            At AAVIRÁ, we believe true Indian couture is not merely worn; it is inherited. Every Banarasi weave, hand-sewn glass pearl, and zardozi thread represents generations of master weavers from Varanasi, Kanchipuram, and Lucknow.
           </p>
 
-          <Link
-            href="/about"
-            className="mt-9 inline-flex border border-brand-gold px-8 py-3.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-champagne transition hover:bg-brand-gold hover:text-brand-primary"
-          >
-            Discover Our Story
-          </Link>
+          <blockquote className="mt-6 border-l-2 border-[#D4AF37] pl-4 font-serif italic text-sm text-[#F3E5AB]">
+            &ldquo;Extravagance is not about ostentation; it is about preserving India&apos;s priceless craft traditions.&rdquo;
+          </blockquote>
+
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#B38F24] px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-[#120C0E] transition hover:brightness-110"
+            >
+              Our Heritage Journey &rarr;
+            </Link>
+            <Link
+              href="/embroidery"
+              className="inline-flex items-center justify-center border border-[#D4AF37]/50 px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-[#F3E5AB] hover:bg-[#D4AF37]/20 transition"
+            >
+              Explore Craftsmanship
+            </Link>
+          </div>
         </div>
       </div>
     </section>

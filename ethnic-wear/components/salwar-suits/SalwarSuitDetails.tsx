@@ -27,8 +27,10 @@ export default function SalwarSuitDetails({
   const [selectedImage, setSelectedImage] =
     useState(salwarSuit.image);
 
+  const salwarSuitSizes = salwarSuit.sizes && salwarSuit.sizes.length > 0 ? salwarSuit.sizes : ["Free Size"];
+
   const [selectedSize, setSelectedSize] =
-    useState(salwarSuit.sizes[0] ?? "");
+    useState(salwarSuitSizes[0]);
 
   const [quantity, setQuantity] = useState(1);
   const [wishlist, setWishlist] = useState(false);
@@ -186,7 +188,7 @@ export default function SalwarSuitDetails({
               </div>
 
               <div className="mt-3 flex flex-wrap gap-2">
-                {salwarSuit.sizes.map((size) => (
+                {salwarSuitSizes.map((size) => (
                   <button
                     key={size}
                     type="button"
@@ -232,7 +234,7 @@ export default function SalwarSuitDetails({
                   onClick={() =>
                     setQuantity((value) =>
                       Math.min(
-                        salwarSuit.stock,
+                        salwarSuit.stock || 10,
                         value + 1
                       )
                     )
@@ -245,7 +247,7 @@ export default function SalwarSuitDetails({
               </div>
 
               <p className="mt-2 text-xs text-[#a1812d]">
-                {salwarSuit.stock} pieces available
+                {salwarSuit.stock || 5} pieces available
               </p>
 
             </div>
