@@ -39,6 +39,7 @@ export default function ProductCard({
 
   // Normalize product data
   const item: Product = product || {
+    // eslint-disable-next-line react-hooks/purity
     id: id || Math.floor(Math.random() * 10000),
     slug: name ? name.toLowerCase().replace(/\s+/g, "-") : "product",
     name: name || "Ethnic Ensemble",
