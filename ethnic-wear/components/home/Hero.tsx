@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const heroSlides = [
   {
-    image: "/images/home/hero.jpg",
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1600&q=80",
     tag: "Royal Heritage 2026",
     title: "Timeless Indian",
     titleHighlight: "Couture & Grace",
@@ -15,7 +15,7 @@ const heroSlides = [
     secondaryCta: { label: "Bridal Lehengas", href: "/lehengas" },
   },
   {
-    image: "/images/products/bridal-lehenga.jpg",
+    image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1600&q=80",
     tag: "Bespoke Bridal Spotlight",
     title: "Imperial Velvet",
     titleHighlight: "Hand Zardozi",
@@ -24,7 +24,7 @@ const heroSlides = [
     secondaryCta: { label: "Custom Fitting", href: "/custom-design" },
   },
   {
-    image: "/images/home/custom-design.jpg",
+    image: "https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=1600&q=80",
     tag: "Royal Menswear",
     title: "Regal Sherwanis &",
     titleHighlight: "Silk Kurtas",

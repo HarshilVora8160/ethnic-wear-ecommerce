@@ -5,10 +5,10 @@ import { salwarSuits } from "@/lib/salwar-suits";
 export default function SalwarSuitsPage() {
   return (
     <CategoryPageLayout
-      title="Salwar & Sharara Suits"
-      subtitle="Artisanal Suit Ensembles"
-      description="Chikankari hand-embroidered sharara suits, straight silk sets, and organza dupatta ensembles."
-      bannerImage="/images/categories/salwar.jpg"
+      title="Lucknowi Shararas & Salwar Suits"
+      subtitle="Refined Festive Ensembles"
+      description="Multi-layered flared shararas, chikankari embroidery, and sequin detailed ethnic suits."
+      bannerImage="https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&w=1600&q=80"
       products={salwarSuits}
     />
   );

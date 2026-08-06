@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { products } from "@/lib/products";
+import { products, getProductBySlug } from "@/lib/products";
 import ProductDetails from "@/components/products/ProductDetails";
 
 interface Props {
@@ -16,32 +16,30 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-
-  const product = products.find((item) => item.slug === slug);
+  const product = getProductBySlug(slug);
 
   if (!product) {
     return {
-      title: "Product Not Found",
+      title: "Product Not Found | AAVIRÁ",
     };
   }
 
   return {
-    title: product.name,
+    title: `${product.name} | AAVIRÁ Couture`,
     description: product.description,
   };
 }
 
 export default async function ProductSlugPage({ params }: Props) {
   const { slug } = await params;
-
-  const product = products.find((item) => item.slug === slug);
+  const product = getProductBySlug(slug);
 
   if (!product) {
     notFound();
   }
 
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-[#FAF8F5] min-h-screen">
       <ProductDetails product={product} />
     </main>
   );

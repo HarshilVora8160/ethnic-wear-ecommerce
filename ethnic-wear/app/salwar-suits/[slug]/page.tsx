@@ -1,51 +1,44 @@
 import { notFound } from "next/navigation";
+import ProductDetails from "@/components/products/ProductDetails";
+import { getSalwarSuitBySlug, salwarSuits } from "@/lib/salwar-suits";
 
-import SalwarSuitDetails from "@/components/salwar-suits/SalwarSuitDetails";
-import { salwarSuits } from "@/lib/salwar-suits";
-
-interface Props {
+interface SalwarSuitSlugPageProps {
   params: Promise<{
     slug: string;
   }>;
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return salwarSuits.map((item) => ({
     slug: item.slug,
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: Props) {
+export async function generateMetadata({ params }: SalwarSuitSlugPageProps) {
   const { slug } = await params;
+  const product = getSalwarSuitBySlug(slug);
 
-  const item = salwarSuits.find(
-    (product) => product.slug === slug
-  );
-
-  if (!item) {
-    return {
-      title: "Salwar Suit Not Found | AAVIRÁ",
-    };
+  if (!product) {
+    return { title: "Product Not Found | AAVIRÁ" };
   }
 
   return {
-    title: `${item.name} | AAVIRÁ`,
-    description: item.description,
+    title: `${product.name} | AAVIRÁ Salwar Suits`,
+    description: product.description,
   };
 }
 
-export default async function SalwarSuitSlugPage({
-  params,
-}: Props) {
+export default async function SalwarSuitSlugPage({ params }: SalwarSuitSlugPageProps) {
   const { slug } = await params;
+  const product = getSalwarSuitBySlug(slug);
 
-  const item = salwarSuits.find(
-    (product) => product.slug === slug
+  if (!product) {
+    notFound();
+  }
+
+  return (
+    <main className="min-h-screen bg-[#FAF8F5]">
+      <ProductDetails product={product} />
+    </main>
   );
-
-  if (!item) notFound();
-
-  return <SalwarSuitDetails salwarSuit={item} />;
 }

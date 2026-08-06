@@ -13,7 +13,7 @@ export default function EditorialSection() {
         <div className="relative flex justify-center">
           <div className="relative h-[440px] sm:h-[520px] w-full max-w-md overflow-hidden border-2 border-[#D4AF37]/40 shadow-2xl">
             <Image
-              src="/images/products/banarasi-saree.jpg"
+              src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80"
               alt="AAVIRÁ Heritage Silk"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -23,7 +23,7 @@ export default function EditorialSection() {
           {/* Overlapping Secondary Card */}
           <div className="absolute -bottom-8 -right-4 sm:-right-8 hidden sm:block h-64 w-52 overflow-hidden border-2 border-[#D4AF37] shadow-2xl bg-[#1A1215]">
             <Image
-              src="/images/products/bridal-lehenga.jpg"
+              src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80"
               alt="Artisan Embroidery"
               fill
               className="object-cover"

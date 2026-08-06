@@ -46,7 +46,7 @@ export default function EmbroideryShowcase() {
           {/* Right Image */}
           <div className="relative aspect-square w-full overflow-hidden border-2 border-[#D4AF37]/30 shadow-2xl">
             <Image
-              src="/images/home/embroidery.jpg"
+              src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=1000&q=80"
               alt="Artisan embroidery craftsmanship"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

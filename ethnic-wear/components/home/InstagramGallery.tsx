@@ -3,10 +3,10 @@ import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const instaPosts = [
-  { src: "/images/products/banarasi-saree.jpg", tag: "#BanarasiRoyal" },
-  { src: "/images/products/bridal-lehenga.jpg", tag: "#AaviraBride" },
-  { src: "/images/products/designer-saree.jpg", tag: "#OrganzaElegance" },
-  { src: "/images/products/embroidered-kurti.jpg", tag: "#FestiveSuits" },
+  { src: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80", tag: "#BanarasiRoyal" },
+  { src: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80", tag: "#AaviraBride" },
+  { src: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80", tag: "#OrganzaElegance" },
+  { src: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=600&q=80", tag: "#FestiveSuits" },
 ];
 
 export default function InstagramGallery() {

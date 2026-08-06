@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
-
-import LehengaDetails from "@/components/lehengas/LehengaDetails";
-import { lehengas } from "@/lib/lehengas";
+import ProductDetails from "@/components/products/ProductDetails";
+import { getLehengaBySlug, lehengas } from "@/lib/lehengas";
 
 interface LehengaSlugPageProps {
   params: Promise<{
@@ -9,45 +8,37 @@ interface LehengaSlugPageProps {
   }>;
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return lehengas.map((lehenga) => ({
     slug: lehenga.slug,
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: LehengaSlugPageProps) {
+export async function generateMetadata({ params }: LehengaSlugPageProps) {
   const { slug } = await params;
-
-  const lehenga = lehengas.find(
-    (item) => item.slug === slug
-  );
+  const lehenga = getLehengaBySlug(slug);
 
   if (!lehenga) {
-    return {
-      title: "Lehenga Not Found | AAVIRÁ",
-    };
+    return { title: "Lehenga Not Found | AAVIRÁ" };
   }
 
   return {
-    title: `${lehenga.name} | AAVIRÁ`,
+    title: `${lehenga.name} | AAVIRÁ Lehengas`,
     description: lehenga.description,
   };
 }
 
-export default async function LehengaSlugPage({
-  params,
-}: LehengaSlugPageProps) {
+export default async function LehengaSlugPage({ params }: LehengaSlugPageProps) {
   const { slug } = await params;
-
-  const lehenga = lehengas.find(
-    (item) => item.slug === slug
-  );
+  const lehenga = getLehengaBySlug(slug);
 
   if (!lehenga) {
     notFound();
   }
 
-  return <LehengaDetails lehenga={lehenga} />;
+  return (
+    <main className="min-h-screen bg-[#FAF8F5]">
+      <ProductDetails product={lehenga} />
+    </main>
+  );
 }
