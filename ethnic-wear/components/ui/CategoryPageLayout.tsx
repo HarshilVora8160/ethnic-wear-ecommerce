@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import ProductCard from "@/components/products/ProductCard";
-import SectionHeading from "@/components/ui/SectionHeading";
 import { Product } from "@/lib/products";
 
 type CategoryPageLayoutProps = {
