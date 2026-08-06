@@ -16,10 +16,12 @@ import {
   Star,
   Check,
   Share2,
+  Ruler,
 } from "lucide-react";
 import { Product, products } from "@/lib/products";
 import { useUI } from "@/lib/context/UIContext";
 import ProductCard from "@/components/products/ProductCard";
+import FitEstimatorModal from "@/components/ui/FitEstimatorModal";
 
 interface Props {
   product: Product;
@@ -43,6 +45,7 @@ export default function ProductDetails({ product }: Props) {
   const [selectedSize, setSelectedSize] = useState(availableSizes[0]);
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState<"desc" | "specs" | "shipping">("desc");
+  const [isFitModalOpen, setIsFitModalOpen] = useState(false);
 
   const currentIndex = galleryImages.indexOf(selectedImage);
   const inWishlist = isInWishlist(product.id);
@@ -69,6 +72,13 @@ export default function ProductDetails({ product }: Props) {
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen pb-20">
+      {/* Fit Estimator Modal */}
+      <FitEstimatorModal
+        isOpen={isFitModalOpen}
+        onClose={() => setIsFitModalOpen(false)}
+        productTitle={product.name}
+      />
+
       {/* Breadcrumb Bar */}
       <div className="border-b border-[#E6DED6] bg-white">
         <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
@@ -291,9 +301,11 @@ export default function ProductDetails({ product }: Props) {
                 </span>
                 <button
                   type="button"
-                  className="text-xs font-semibold text-[#8B5E3C] underline hover:text-[#2A0812]"
+                  onClick={() => setIsFitModalOpen(true)}
+                  className="flex items-center gap-1 text-xs font-semibold text-[#8B5E3C] underline hover:text-[#2A0812]"
                 >
-                  Size Guide & Fit
+                  <Ruler size={14} />
+                  Bespoke Fit Calculator
                 </button>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -363,7 +375,7 @@ export default function ProductDetails({ product }: Props) {
               <button
                 type="button"
                 onClick={() => addToCart(product, selectedSize, quantity)}
-                className="flex h-14 items-center justify-center gap-3 rounded-md bg-gradient-to-r from-[#D4AF37] to-[#B38F24] text-xs font-bold uppercase tracking-[0.18em] text-[#2A0812] shadow-md transition-all duration-300 hover:brightness-110 hover:shadow-lg active:scale-95"
+                className="flex h-14 items-center justify-center gap-3 rounded-md bg-gradient-to-r from-[#D4AF37] to-[#B38F24] text-xs font-bold uppercase tracking-[0.18em] text-[#2A0812] shadow-md transition-all duration-300 hover:brightness-110 hover:shadow-lg active:scale-95 shine-metallic"
               >
                 <ShoppingBag size={18} />
                 Add to Cart

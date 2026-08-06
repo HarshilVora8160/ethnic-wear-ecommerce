@@ -9,6 +9,7 @@ import CartDrawer from "@/components/ui/CartDrawer";
 import QuickViewModal from "@/components/ui/QuickViewModal";
 import SearchModal from "@/components/ui/SearchModal";
 import Toast from "@/components/ui/Toast";
+import FloatingQuickCart from "@/components/ui/FloatingQuickCart";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -46,6 +47,7 @@ export default function RootLayout({
           <CartDrawer />
           <QuickViewModal />
           <SearchModal />
+          <FloatingQuickCart />
           <Toast />
         </UIProvider>
       </body>

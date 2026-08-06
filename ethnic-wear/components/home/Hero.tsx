@@ -4,61 +4,44 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const heroSlides = [
-  {
-    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1600&q=80",
-    tag: "Royal Heritage 2026",
-    title: "Timeless Indian",
-    titleHighlight: "Couture & Grace",
-    description: "Handcrafted Banarasi silk sarees & bespoke bridal lehengas inspired by India's imperial royal courts.",
-    primaryCta: { label: "Explore Sarees", href: "/sarees" },
-    secondaryCta: { label: "Bridal Lehengas", href: "/lehengas" },
-  },
-  {
-    image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1600&q=80",
-    tag: "Bespoke Bridal Spotlight",
-    title: "Imperial Velvet",
-    titleHighlight: "Hand Zardozi",
-    description: "Heavy velvet bridal ensembles with intricately woven 24k gold zari and custom made-to-measure fitting.",
-    primaryCta: { label: "View Lehengas", href: "/lehengas" },
-    secondaryCta: { label: "Custom Fitting", href: "/custom-design" },
-  },
-  {
-    image: "https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=1600&q=80",
-    tag: "Royal Menswear",
-    title: "Regal Sherwanis &",
-    titleHighlight: "Silk Kurtas",
-    description: "Refined sherwanis, bandhgalas, and raw silk kurtas crafted for the discerning modern groom.",
-    primaryCta: { label: "Groom Collection", href: "/men" },
-    secondaryCta: { label: "Explore Craft", href: "/embroidery" },
-  },
+const heroImages = [
+  "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1600&q=80",
+  "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1600&q=80",
+  "https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=1600&q=80",
 ];
+
+const staticContent = {
+  tag: "Royal Heritage 2026",
+  title: "Timeless Indian",
+  titleHighlight: "Couture & Grace",
+  description: "Handcrafted Banarasi silk sarees & bespoke bridal lehengas inspired by India's imperial royal courts.",
+  primaryCta: { label: "Explore Sarees", href: "/sarees" },
+  secondaryCta: { label: "Bridal Lehengas", href: "/lehengas" },
+};
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 6000);
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
-  const slide = heroSlides[currentSlide];
-
   return (
     <section className="relative min-h-[720px] overflow-hidden lg:min-h-[860px] bg-[#120C0E]">
-      {/* Background Image Carousel */}
-      {heroSlides.map((s, idx) => (
+      {/* Background Image Carousel - Only Images Change */}
+      {heroImages.map((imgUrl, idx) => (
         <div
           key={idx}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            idx === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105 pointer-events-none"
+            idx === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >
           <Image
-            src={s.image}
-            alt={s.title}
+            src={imgUrl}
+            alt="AAVIRÁ Royal Heritage Collection"
             fill
             priority={idx === 0}
             sizes="100vw"
@@ -70,44 +53,44 @@ export default function Hero() {
         </div>
       ))}
 
-      {/* Hero Content */}
+      {/* Hero Content - Static Text */}
       <div className="relative z-10 mx-auto flex min-h-[720px] max-w-7xl items-center px-6 sm:px-8 lg:min-h-[860px] lg:px-12">
         <div className="max-w-2xl text-white py-12">
           {/* Gold Badge */}
           <div className="inline-flex items-center gap-3 border border-[#D4AF37]/50 bg-[#120C0E]/70 px-4 py-1.5 backdrop-blur-md">
             <span className="h-2 w-2 rounded-full bg-[#D4AF37] animate-ping" />
             <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#F3E5AB]">
-              ✦ {slide.tag}
+              ✦ {staticContent.tag}
             </span>
           </div>
 
-          {/* Heading */}
+          {/* Static Heading */}
           <h1 className="mt-6 font-serif text-5xl leading-[0.95] tracking-wide sm:text-7xl lg:text-8xl font-normal text-white">
-            {slide.title}
+            {staticContent.title}
             <br />
             <span className="text-gold-gradient italic font-serif">
-              {slide.titleHighlight}
+              {staticContent.titleHighlight}
             </span>
           </h1>
 
           <p className="mt-6 max-w-lg text-sm sm:text-base leading-relaxed text-[#CDBDB2]">
-            {slide.description}
+            {staticContent.description}
           </p>
 
           {/* Action CTA Buttons */}
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <Link
-              href={slide.primaryCta.href}
+              href={staticContent.primaryCta.href}
               className="inline-flex h-13 items-center justify-center bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#B38F24] px-8 text-xs font-bold uppercase tracking-[0.2em] text-[#120C0E] shadow-xl transition hover:brightness-110 gold-glow-hover"
             >
-              {slide.primaryCta.label} &rarr;
+              {staticContent.primaryCta.label} &rarr;
             </Link>
 
             <Link
-              href={slide.secondaryCta.href}
+              href={staticContent.secondaryCta.href}
               className="inline-flex h-13 items-center justify-center border border-[#F3E5AB]/40 bg-[#120C0E]/50 px-8 text-xs font-bold uppercase tracking-[0.2em] text-[#F3E5AB] backdrop-blur-md transition hover:border-[#D4AF37] hover:bg-[#D4AF37]/20"
             >
-              {slide.secondaryCta.label}
+              {staticContent.secondaryCta.label}
             </Link>
           </div>
 
@@ -131,7 +114,7 @@ export default function Hero() {
 
       {/* Carousel Dots Indicator */}
       <div className="absolute bottom-8 right-8 z-20 flex gap-3">
-        {heroSlides.map((_, idx) => (
+        {heroImages.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentSlide(idx)}
